@@ -1,0 +1,32 @@
+# render.yaml - Render.com deployment config
+  services:
+    - type: web
+      name: thunder-bot
+      runtime: python
+      buildCommand: pip install -r requirements.txt
+      startCommand: python -m Thunder
+      envVars:
+        - key: API_ID
+          sync: false
+        - key: API_HASH
+          sync: false
+        - key: BOT_TOKEN
+          sync: false
+        - key: BIN_CHANNEL
+          sync: false
+        - key: OWNER_ID
+          sync: false
+        - key: DATABASE_URL
+          sync: false
+        - key: FQDN
+          sync: false
+        - key: HAS_SSL
+          value: "True"
+        - key: NO_PORT
+          value: "True"
+        - key: PORT
+          value: "10000"
+        - key: PING_INTERVAL
+          value: "840"
+      healthCheckPath: /
+  
